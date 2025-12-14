@@ -14,6 +14,26 @@ Next up, once you say "go", it launches a *subagent-driven-development* process,
 
 There's a bunch more to it, but that's the core of the system. And because the skills trigger automatically, you don't need to do anything special. Your coding agent just has Superpowers.
 
+## About This Fork
+
+This is a fork of obra/superpowers with bd (beads) integration for persistent planning and memory across sessions.
+
+**Key differences from upstream:**
+- Uses bd issue tracking instead of markdown files for designs and implementation plans
+- Design documents stored in bd issue `design` field
+- Implementation plans stored in bd issue `design` field
+- Progress tracked in bd issue `notes` field
+- All planning artifacts persist across compaction cycles
+
+**Setup requirement:**
+
+Initialize bd in your project before using planning skills:
+
+```bash
+bd init <prefix>
+```
+
+The brainstorming, writing-plans, and executing-plans skills all integrate with bd automatically.
 
 ## Sponsorship
 
@@ -79,11 +99,11 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 ## The Basic Workflow
 
-1. **brainstorming** - Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation. Saves design document.
+1. **brainstorming** - Activates before writing code. Refines rough ideas through questions, explores alternatives, presents design in sections for validation. Creates bd issue with design in `design` field.
 
 2. **using-git-worktrees** - Activates after design approval. Creates isolated workspace on new branch, runs project setup, verifies clean test baseline.
 
-3. **writing-plans** - Activates with approved design. Breaks work into bite-sized tasks (2-5 minutes each). Every task has exact file paths, complete code, verification steps.
+3. **writing-plans** - Activates with approved design. Breaks work into bite-sized tasks (2-5 minutes each). Every task has exact file paths, complete code, verification steps. Creates bd issue with plan in `design` field, linked to design issue.
 
 4. **subagent-driven-development** or **executing-plans** - Activates with plan. Dispatches fresh subagent per task (same session, fast iteration) or executes in batches (parallel session, human checkpoints).
 

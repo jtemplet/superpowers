@@ -35,14 +35,16 @@ Start by understanding the current project context, then ask questions one at a 
 ## After the Design
 
 **Documentation:**
-- Write the validated design to `docs/plans/YYYY-MM-DD-<topic>-design.md`
-- Use elements-of-style:writing-clearly-and-concisely skill if available
-- Commit the design document to git
+- Use bd-issue-tracking skill to create a design issue
+- Create issue: `bd create "Design: [Feature Name]" -t epic -d "[Problem Statement and Acceptance Criteria]"`
+- Store the complete design in the design field: `bd update <issue-id> --design "[Full design document]"`
+- Mark issue as closed when approved: `bd update <issue-id> --status closed`
+- Output to user: "Design complete and saved to issue `<issue-id>`"
 
 **Implementation (if continuing):**
 - Ask: "Ready to set up for implementation?"
-- Use superpowers:using-git-worktrees to create isolated workspace
-- Use superpowers:writing-plans to create detailed implementation plan
+- Use using-git-worktrees to create isolated workspace
+- Use writing-plans to create detailed implementation plan
 
 ## Key Principles
 

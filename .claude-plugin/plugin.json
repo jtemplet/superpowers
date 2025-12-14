@@ -1,13 +1,13 @@
 {
   "name": "superpowers",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-  "version": "3.6.2",
+  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques with bd integration",
+  "version": "3.6.2-jt.1",
   "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "Jason Templeton",
+    "email": "jtemple77@gmail.com"
   },
-  "homepage": "https://github.com/obra/superpowers",
-  "repository": "https://github.com/obra/superpowers",
+  "homepage": "https://github.com/jtemplet/superpowers",
+  "repository": "https://github.com/jtemplet/superpowers",
   "license": "MIT",
-  "keywords": ["skills", "tdd", "debugging", "collaboration", "best-practices", "workflows"]
+  "keywords": ["skills", "tdd", "debugging", "collaboration", "best-practices", "workflows", "bd", "beads"]
 }

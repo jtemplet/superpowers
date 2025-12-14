@@ -13,10 +13,14 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
+**Input:** bd issue ID containing the implementation plan
+
 ## The Process
 
 ### Step 1: Load and Review Plan
-1. Read plan file
+1. Read plan from bd issue using bd-issue-tracking skill:
+   - Run: `bd show <issue-id> --json | jq -r '.[0].design'`
+   - Plan content is stored in the `design` field
 2. Review critically - identify any questions or concerns about the plan
 3. If concerns: Raise them with your human partner before starting
 4. If no concerns: Create TodoWrite and proceed
@@ -30,24 +34,33 @@ For each task:
 3. Run verifications as specified
 4. Mark as completed
 
-### Step 3: Report
+### Step 3: Report and Checkpoint
 When batch complete:
 - Show what was implemented
 - Show verification output
+- Update bd issue notes with progress:
+  ```bash
+  bd update <issue-id> --notes "COMPLETED: Tasks 1-3 [brief summary]
+  IN PROGRESS: Task 4
+  NEXT: Continue with tasks 4-6"
+  ```
 - Say: "Ready for feedback."
 
 ### Step 4: Continue
 Based on feedback:
 - Apply changes if needed
 - Execute next batch
+- Update notes at each checkpoint
 - Repeat until complete
 
 ### Step 5: Complete Development
 
 After all tasks complete and verified:
 - Announce: "I'm using the finishing-a-development-branch skill to complete this work."
-- **REQUIRED SUB-SKILL:** Use superpowers:finishing-a-development-branch
+- **REQUIRED SUB-SKILL:** Use finishing-a-development-branch
 - Follow that skill to verify tests, present options, execute choice
+- Update bd issue notes with final status
+- Close issue: `bd close <issue-id> --reason "Implementation complete"`
 
 ## When to Stop and Ask for Help
 
